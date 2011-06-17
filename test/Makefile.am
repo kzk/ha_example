@@ -1,0 +1,10 @@
+SUBDIRS = sql
+
+TESTS = run-sql-test.sh
+TESTS_ENVIRONMENT =				\
+	MYSQL_SOURCE="$(MYSQL_SOURCE)"		\
+	MYSQL_BUILD="$(MYSQL_BUILD)"		\
+	MYSQL_VERSION="$(MYSQL_VERSION)"
+
+EXTRA_DIST =					\
+	run-sql-test.sh
