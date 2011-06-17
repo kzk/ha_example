@@ -33,17 +33,14 @@ case "${MYSQL_VERSION}" in
 	fi
 	;;
     *)
-	if ! test -d "${build_test_suites_dir}"; then
-	    ln -s "${source_test_suites_dir}" "${build_test_suites_dir}"
-	fi
+	rm -f "${build_test_suites_dir}"
+	ln -s "${source_test_suites_dir}" "${build_test_suites_dir}"
 	plugins_dir="${MYSQL_SOURCE}/lib/plugin"
 	;;
 esac
 
-if ! test -e "${example_mysql_test_suite_dir}"; then
-    ln -s "${local_example_mysql_test_suite_dir}" \
-	"${example_mysql_test_suite_dir}"
-fi
+rm -f "${example_mysql_test_suite_dir}"
+ln -s "${local_example_mysql_test_suite_dir}" "${example_mysql_test_suite_dir}"
 
 make -C ${top_dir}/src/ install-pluginLTLIBRARIES plugindir=${plugins_dir} > /dev/null
 
