@@ -126,5 +126,6 @@ CXXFLAGS="$CXXFLAGS -Werror -fno-implicit-templates -fno-exceptions -fno-rtti -f
 
 AC_CONFIG_FILES([
   Makefile
+  src/Makefile
 ])
 AC_OUTPUT
